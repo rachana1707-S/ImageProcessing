@@ -1,0 +1,189 @@
+How to Run the Project:
+
+1. Script Mode
+    Navigate to the project folder in your terminal.
+    Locate the Archive.jar file in the res folder.
+    Run the program by passing a script file as an argument: java -jar Archive.jar -file <script-path>
+    Example :
+            java -jar Archive.jar -file PNG/PNGscript.txt
+            java -jar Archive.jar -file JPG/JPGscript.txt
+            java -jar Archive.jar -file PPM/PPMscript.txt
+
+2. Graphical User Interface (GUI Mode)
+    Navigate to the project folder in your terminal.
+    Locate the Archive.jar file in the res folder.
+    Run the JAR file without any arguments to launch the GUI-based version of the application.
+    Example :
+            java -jar Archive.jar
+
+3. Interactive Mode
+    Navigate to the project folder in your terminal.
+    Locate the Archive.jar file in the res folder.
+    Example :
+            java -jar Archive.jar -text
+    The program will prompt you to enter commands interactively.
+    Examples :
+             load PNG/lion.png original
+             horizontal-flip original flipped
+             save PNG/Output/flipped.png flipped
+
+
+
+
+Script File:
+The script file contains a set of commands as shown below. The program will execute these commands:
+( The following commands are for PNG images, for PPM & JPG, simply replace the PNG with JPG and PPM. )
+# Load the original image
+load <imagePath> original
+
+# Horizontal flip and save
+horizontal-flip original flipped-horizontal
+save <saveImagePath>/flipped-horizontal.png flipped-horizontal
+
+# Vertical flip and save
+vertical-flip original flipped-vertical
+save <saveImagePath>/flipped-vertical.png flipped-vertical
+
+# Visualize the red component and save
+red-component original red-component
+save <saveImagePath>/red-component.png red-component
+
+# Visualize the green component and save
+green-component original green-component
+save <saveImagePath>/green-component.png green-component
+
+# Visualize the blue component and save
+blue-component original blue-component
+save <saveImagePath>/blue-component.png blue-component
+
+# Visualize the value component (max of RGB) and save
+value-component original value-component
+save <saveImagePath>/value-component.png value-component
+
+# Visualize the luma component (weighted RGB sum) and save
+luma-component original luma-component
+save <saveImagePath>/luma-component.png luma-component
+
+# Visualize the intensity component (average of RGB) and save
+intensity-component original intensity-component
+save <saveImagePath>/intensity-component.png intensity-component
+
+# Apply sepia tone and save
+sepia original sepia-tone
+save <saveImagePath>/sepia-tone.png sepia-tone
+
+# Apply greyscale tone and save
+greyscale original greyscale-tone
+save <saveImagePath>/greyscale-tone.png greyscale-tone
+
+# Brighten the image by 50 and save
+brighten 50 original brightened
+save <saveImagePath>/brightened.png brightened
+
+# Darken the image by -50 and save (negative increment darkens the image)
+brighten -50 original darkened
+save <saveImagePath>/darkened.png darkened
+
+# Blur the image and save
+blur original blurred
+save <saveImagePath>/blurred.png blurred
+
+# Sharpen the image and save
+sharpen original sharpened
+save <saveImagePath>/sharpened.png sharpened
+
+# Split the original image into red, green, and blue components and save
+rgb-split original red-split green-split blue-split
+save <saveImagePath>/red-split.png red-split
+save <saveImagePath>/green-split.png green-split
+save <saveImagePath>/blue-split.png blue-split
+
+# Combine the RGB split images back into a single image and save
+rgb-combine combined red-split green-split blue-split
+save <saveImagePath>/combined.png combined
+
+# Generate and save the histogram of the original image as a 256x256 image
+histogram original histogram-image
+save <saveImagePath>/histogram-image-simple.png histogram-image
+
+# Perform color correction to align the histogram peaks with a split at 50%
+color-correct original color-corrected split 50
+save <saveImagePath>/color-corrected-split-50-simple.png color-corrected
+
+# Adjust the levels of the image with black, mid, and white values (20, 128, 230) and split at 75%
+levels-adjust 20 128 230 original levels-adjusted split 75
+save <saveImagePath>/levels-adjusted-split-75-simple.png levels-adjusted
+
+# Apply blur to the right half (split at 50%) of the image
+blur original blurred split 50
+save <saveImagePath>/blurred-split-50-simple.png blurred
+
+# Apply sharpen to the right quarter (split at 75%) of the image
+sharpen original sharpened split 75
+save <saveImagePath>/sharpened-split-75-simple.png sharpened
+
+# Apply sepia tone to the right third (split at 66%) of the image
+sepia original sepia-toned split 66
+save <saveImagePath>/sepia-toned-split-66-simple.png sepia-toned
+
+# Apply greyscale to the right 10% (split at 90%) of the image
+greyscale original greyscaled split 90
+save <saveImagePath>/greyscaled-split-90-simple.png greyscaled
+
+# Compress the image with a 90% compression level
+compress 90 original compressedImage
+save <saveImagePath>/compressedImage-simple.png compressedImage
+
+
+Using the GUI :
+
+1. File Operations
+Load Image: Click this button to load an image from your computer. It will prompt you to
+select an image file (supported formats like PNG, JPG, or PPM). Once loaded, the image will appear
+in the Image Display area on the right.
+Save Image: After performing operations on the image, click this button to save the modified image.
+You will be prompted to specify the save location and file name.
+
+2. Basic Operations
+Select Operation: Use the dropdown to select an operation, such as Blur, Sharpen, Sepia, etc.
+Split Percent: Enter a percentage (0–100) to apply the selected operation to only a part of the
+image, starting from the left. If no value is provided, the operation will apply to the
+whole image.
+Apply: Click this button to apply the selected operation to the entire image.
+Apply on Split: Click this button to apply the operation to the specified percentage of the image.
+
+3. Flip Operations
+Select Flip Operation: Use the dropdown to choose a flipping direction (e.g., Flip Horizontal or
+Flip Vertical).
+Flip: Click this button to apply the selected flip operation to the loaded image.
+
+4. Brightness Adjustment
+Brightness Level: Enter a numeric value to adjust the image's brightness. Positive values make the
+image brighter, and negative values make it darker.
+Adjust: Click this button to apply the brightness adjustment.
+
+5. Image Compression
+Threshold: Enter a value (percentage) to compress the image. Compression will
+reduce the image's quality or pixel density based on this value.
+Compress: Click this button to apply the compression.
+
+6. Downscale Image
+Width and Height: Enter the desired width and height for resizing the image.
+Downscale: Click this button to resize the image to the specified dimensions.
+
+7. Histogram
+This section will display the histogram of the loaded or modified image.
+
+8. Image Display Area
+The central section on the right displays the loaded or processed image. After loading, any
+operation you apply will reflect here.
+
+9. Error/Status Messages
+At the bottom, you’ll see messages like “Image Not Saved.” These indicate the current state,
+such as whether an image is unsaved or an operation has been successfully applied.
+
+Steps to Use:
+Load an image using the Load Image button.
+Select and configure the desired operation (e.g., blur, flip, brightness adjustment).
+Apply the operation using the respective button (e.g., Apply, Flip, Adjust).
+Save the processed image using the Save Image button.

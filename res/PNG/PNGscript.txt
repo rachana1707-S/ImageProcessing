@@ -1,0 +1,42 @@
+# Load the original image from the specified path
+load PNG/lion.png original
+
+# Generate and save the histogram of the original image as a 256x256 image
+histogram original histogram-image
+save PNG/Output/histogram-image-lion.png histogram-image
+
+# Perform color correction to align the histogram peaks with a split at 50%
+color-correct original color-corrected split 50
+save PNG/Output/color-corrected-split-50-lion.png color-corrected
+
+# Adjust the levels of the image with black, mid, and white values (20, 128, 230) and split at 75%
+levels-adjust 20 128 230 original levels-adjusted75 split 75
+save PNG/Output/levels-adjusted-split-75-lion.png levels-adjusted75
+
+# Adjust the levels of the image with black, mid, and white values (120, 130, 140) and split at 60%
+levels-adjust 120 130 140 original levels-adjusted60 split 60
+save PNG/Output/levels-adjusted-split-60-lion.png levels-adjusted60
+
+# Apply blur to the right half (split at 50%) of the image
+blur original blurred split 50
+save PNG/Output/blurred-split-50-lion.png blurred
+
+# Apply sharpen to the right quarter (split at 75%) of the image
+sharpen original sharpened split 75
+save PNG/Output/sharpened-split-75-lion.png sharpened
+
+# Apply sepia tone to the right third (split at 66%) of the image
+sepia original sepia-toned split 66
+save PNG/Output/sepia-toned-split-66-lion.png sepia-toned
+
+# Apply greyscale to the right 10% (split at 90%) of the image
+greyscale original greyscaled split 90
+save PNG/Output/greyscaled-split-90-lion.png greyscaled
+
+# Compress the image with a 50% compression level
+compress 50 original compressedImage50
+save PNG/Output/compressedImage50-lion.png compressedImage50
+
+# Compress the image with a 90% compression level
+compress 90 original compressedImage90
+save PNG/Output/compressedImage90-lion.png compressedImage90

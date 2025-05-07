@@ -1,0 +1,39 @@
+# Load the original image from the specified path
+load JPG/sunflower.jpg original
+
+# Generate and save the histogram of the original image as a 256x256 image
+histogram original histogram-image
+save JPG/Output/histogram-image.jpg histogram-image
+
+# Perform color correction to align the histogram peaks with a split at 50%
+color-correct original color-corrected split 50
+save JPG/Output/color-corrected-split-50.jpg color-corrected
+
+# Adjust the levels of the image with black, mid, and white values (20, 128, 230) and split at 75%
+levels-adjust 20 128 230 original levels-adjusted75 split 75
+save JPG/Output/levels-adjusted-split-75.jpg levels-adjusted75
+
+levels-adjust 120 130 150 original levels-adjusted50 split 50
+save JPG/Output/levels-adjusted-split-50.jpg levels-adjusted50
+
+# Apply blur to the right half (split at 50%) of the image
+blur original blurred split 50
+save JPG/Output/blurred-split-50.jpg blurred
+
+# Apply sharpen to the right quarter (split at 75%) of the image
+sharpen original sharpened split 75
+save JPG/Output/sharpened-split-75.jpg sharpened
+
+# Apply sepia tone to the right third (split at 66%) of the image
+sepia original sepia-toned split 66
+save JPG/Output/sepia-toned-split-66.jpg sepia-toned
+
+# Apply greyscale to the right 10% (split at 90%) of the image
+greyscale original greyscaled split 90
+save JPG/Output/greyscaled-split-90.jpg greyscaled
+
+compress 90 original compressedImage90
+save JPG/Output/compressedImage90.jpg compressedImage90
+
+compress 50 original compressedImage50
+save JPG/Output/compressedImage50.jpg compressedImage50

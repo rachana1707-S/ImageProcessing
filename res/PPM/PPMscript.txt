@@ -1,0 +1,40 @@
+# Load the original image from the specified path
+load PPM/simple.ppm original
+
+# Generate and save the histogram of the original image as a 256x256 image
+histogram original histogram-image
+save PPM/Output/histogram-image-simple.ppm histogram-image
+
+# Perform color correction to align the histogram peaks with a split at 50%
+color-correct original color-corrected split 50
+save PPM/Output/color-corrected-split-50-simple.ppm color-corrected
+
+# Adjust the levels of the image with black, mid, and white values (20, 128, 230) and split at 75%
+levels-adjust 20 128 230 original levels-adjusted75 split 75
+save PPM/Output/levels-adjusted-split-75-simple.ppm levels-adjusted75
+
+levels-adjust 120 130 150 original levels-adjusted60 split 60
+save PPM/Output/levels-adjusted-split-60-simple.ppm levels-adjusted60
+
+# Apply blur to the right half (split at 50%) of the image
+blur original blurred split 50
+save PPM/Output/blurred-split-50-simple.ppm blurred
+
+# Apply sharpen to the right quarter (split at 75%) of the image
+sharpen original sharpened split 75
+save PPM/Output/sharpened-split-75-simple.ppm sharpened
+
+# Apply sepia tone to the right third (split at 66%) of the image
+sepia original sepia-toned split 66
+save PPM/Output/sepia-toned-split-66-simple.ppm sepia-toned
+
+# Apply greyscale to the right 10% (split at 90%) of the image
+greyscale original greyscaled split 90
+save PPM/Output/greyscaled-split-90-simple.ppm greyscaled
+
+# Compress the image with a 90% compression level
+compress 90 original compressedImage90
+save PPM/Output/compressedImage-simple90.ppm compressedImage90
+
+compress 50 original compressedImage50
+save PPM/Output/compressedImage-simple50.ppm compressedImage50
