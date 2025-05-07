@@ -1,12 +1,10 @@
-I'll give you the raw markdown code without any formatting or code blocks. Copy exactly the following text into your README.md file:
 🖼️ PixelPerfect: Advanced Image Manipulation Suite
-Show Image
-Show Image
-Show Image
 
 Transform your ordinary images into extraordinary creations with our powerful yet intuitive image processing toolkit.
 
 Developed by: Ashwin Reddy & Rachana Sudhakar
+
+---
 ✨ Features
 
 Multi-format support: Load and save images in PPM, PNG, and JPG formats
