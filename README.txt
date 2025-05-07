@@ -1,5 +1,5 @@
-
-#🖼️ PixelPerfect: Advanced Image Manipulation Suite
+```markdown
+# 🖼️ PixelPerfect: Advanced Image Manipulation Suite
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/)
@@ -146,3 +146,5 @@ save res/PNG/Output/lion-blurred.png lion-blurred
 ---
 
 *Transform your pixels, unleash your creativity!*
+```
+
