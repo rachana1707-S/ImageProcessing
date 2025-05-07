@@ -1,20 +1,39 @@
-ASSIGNMENT 6 : Image Manipulation Project
-         - Ashwin Reddy
-         - Rachana Sudhakar
+# 🖼️ PixelPerfect: Advanced Image Manipulation Suite
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/)
+[![MVC Architecture](https://img.shields.io/badge/Architecture-MVC-blue.svg)](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
 
-Overview
-This project is an advanced image manipulation and enhancement application that supports loading,
-manipulating, and saving images in various formats, including PPM, PNG, and JPG. The application is
-built using the Model-View-Controller (MVC) architecture and provides operations such as flipping,
-brightening, blurring, sepia toning, histogram generation, color correction, levels adjustment,
-and compression.
+> Transform your ordinary images into extraordinary creations with our powerful yet intuitive image processing toolkit.
 
-The program supports multiple modes of operation: script-based, interactive, and graphical user
-interface (GUI) modes.
+**Developed by: Ashwin Reddy & Rachana Sudhakar**
 
+## ✨ Features
 
-Project Structure:
+- **Multi-format support**: Load and save images in PPM, PNG, and JPG formats
+- **Triple operation modes**: Script-based, interactive CLI, and full-featured GUI
+- **Core manipulations**: Flip, resize, brighten, darken, grayscale
+- **Advanced filters**: Blur, sharpen, sepia tone
+- **Professional tools**:
+  - 📊 RGB histogram generation
+  - 🎚️ Levels adjustment
+  - 🔍 Split view for before/after comparisons
+  - 🌈 Color correction
+  - 📉 Image compression using Haar wavelet transform
+
+## 🏗️ Architecture
+
+Built on the solid foundation of Model-View-Controller (MVC) architecture to ensure clean separation of concerns:
+
+```
+Model     - Manages image data and implements operations
+Controller - Processes commands and orchestrates workflows
+View       - Handles user interaction through CLI or GUI
+```
+
+## 📁 Project Structure
+
+```
 /res/
   ├── JPG/
   │    ├── Output/           -- Output images for JPG processing
@@ -33,160 +52,96 @@ Project Structure:
   ├── UMLWithMethods.jpeg    -- UML diagram including methods
 
 /src/
-  ├── controller/            -- Handles user input and command processing
+  ├── controller/            -- Command processing and workflow management
   │    ├── ControllerInterface.java
   │    ├── ImageController.java
   │    ├── ImageprocessingController.java
-  ├── model/                 -- Handles image data and operations
+  ├── model/                 -- Image data and operations
   │    ├── Image.java
   │    ├── ImageInterface.java
   │    ├── ImageOperations.java
   │    ├── ImageOperationsInterface.java
-  ├── view/                  -- Manages user interaction and feedback
+  ├── view/                  -- User interaction and feedback
   │    ├── ImageProcessingGUI.java
   │    ├── ImageView.java
   │    ├── ViewInterface.java
-  ├── Main.java              -- Entry point for the program
+  ├── Main.java              -- Application entry point
 
 /test/
-  ├── ImageModelTest.java    -- Tests for the model components
-  ├── ImageControllerTest.java -- Tests for the controller
-  ├── EqualsHashTest.java    -- Tests for equality and hash methods
-  ├── ImageprocessingControllerTest.java    -- Tests the GUI
+  ├── ImageModelTest.java    -- Model component tests
+  ├── ImageControllerTest.java -- Controller tests
+  ├── EqualsHashTest.java    -- Equality and hash method tests
+  ├── ImageprocessingControllerTest.java    -- GUI tests
   ├── mock
        ├── MockImageprocessingController.java
+```
 
+## 🚀 Getting Started
 
-Explanation of Classes:
+### Running the Application
 
-Controller
+The program supports three modes of operation:
 
-controller.ImageController
-Manages interactions between the user’s commands (via script or GUI) and operations on images.
-Responsible for orchestrating actions such as loading, saving, and applying manipulations to images.
-Reads and writes images in PPM, JPG, and PNG formats.
-Uses the ImageOperations class for implementing operations such as flipping, brightening, darkening,
-and advanced manipulations like compression and histogram adjustments.
+1. **Script Mode**:
+   ```
+   java -jar Archive.jar -file path/to/script.txt
+   ```
 
-controller.ImageprocessingController
-Handles additional GUI-specific operations such as event handling and dynamic updates.
-Provides listeners for actions like applying filters, saving images, and adjusting brightness.
-Facilitates communication between GUI components and the underlying model operations.
+2. **Interactive Mode**:
+   ```
+   java -jar Archive.jar -text
+   ```
 
-Model
+3. **GUI Mode**:
+   ```
+   java -jar Archive.jar
+   ```
 
-model.Image
-Represents the fundamental structure of an image.
-Stores pixel data, image width, and height.
-Provides methods to:
-Retrieve and modify pixel values.
-Access metadata such as dimensions.
-Deep-copy image data to maintain immutability.
+### Example Commands
 
-model.ImageOperations
-Implements the core image processing logic.
-Operations include:
-Basic Operations: Flipping (horizontal/vertical), Brightening, Darkening.
-Color Component Manipulations: Red, Green, Blue channels; Value, Luma, and Intensity visualization.
-Filters: Blur, Sharpen, Sepia, Greyscale.
-Advanced Features:
-Split view for selective application of operations.
-Histogram generation and levels adjustment.
-Compression using Haar wavelet transform.
-Color correction to align histogram peaks.
+```
+load res/PNG/lion.png lion
+brighten 10 lion lion-brighter
+vertical-flip lion lion-flipped
+blur lion lion-blurred
+save res/PNG/Output/lion-blurred.png lion-blurred
+```
 
-model.ImageInterface
-Defines the contract for accessing and manipulating image data.
-Ensures extensibility and adherence to the single responsibility principle.
+## 🔍 Key Components
 
-model.ImageOperationsInterface
-Specifies methods for all supported image operations, ensuring consistency in implementations.
+### Controller
+- **ImageController**: Manages user commands and image operations
+- **ImageprocessingController**: Handles GUI-specific operations and event handling
 
-View
+### Model
+- **Image**: Core image data structure with pixel manipulation capabilities
+- **ImageOperations**: Implements all image processing algorithms and filters
 
-view.ImageView
-Handles text-based interaction with the user.
-Displays feedback, error messages, and status updates for script-based commands.
+### View
+- **ImageView**: Text-based user interaction
+- **ImageProcessingGUI**: Fully-featured graphical interface with real-time previews
 
-view.ImageProcessingGUI
-Manages the graphical user interface.
-Provides components like buttons, sliders, and menus for interacting with the program.
-Displays updated image previews and RGB histograms.
-Enables users to load, manipulate, and save images interactively.
+## 🌟 Design Highlights
 
-view.ViewInterface
-Defines the common functionality required for any type of user interface (text-based or GUI).
+- **Flexible Split-View Processing**: Apply operations to selective portions of images
+- **Wavelet-based Compression**: Intelligently reduces file size while preserving visual quality
+- **Advanced Histogram Tools**: Generate visual RGB histograms with optional grid patterns
+- **Modular Filter System**: Easily extendable framework for adding new image effects
 
-Main
-The entry point of the application.
-Initializes the ImageController and/or ImageprocessingController based on the selected execution
-mode (script, interactive, or GUI).Accepts command-line arguments to determine the mode and inputs
-(e.g., script path or GUI launch).
+## 📸 Image Credits
 
+- **Sunflower Image (JPG)**: Fir0002, "Sunflower (Sunfola variety) against a blue sky," Wikimedia Commons, Licensed under CC BY-NC 3.0 and GNU GFDL 1.2.
 
-Design Changes and Justifications
+- **Lion Image (PNG)**: Charles J. Sharp, "Lion (Panthera leo) male, six years old," Wikimedia Commons, Licensed under CC BY-SA 4.0.
 
-Method Parameter Addition:
-We modified existing methods to include a new parameter for percentage split, enabling more flexible
-functionality without creating overloaded methods. Edited some methods to include a new parameter
-for percentage split, rather than creating overloaded methods. This change allows more precise
-control over processing without duplicating method signatures, which keeps the code cleaner and
-reduces redundancy.
+- **Simple PPM Image**: Created by Ashwin Reddy for this project.
 
-Interface Adjustments:
-Minor updates were made to the interface to accommodate this parameter, maintaining compatibility
-with the rest of the design.
+## 📋 Notes
 
-Edge Detection Feature:
-Added a new image processing operation, aligning it with existing modular filter classes.
+- Ensure the `res` directory structure is maintained for proper script and image access
+- Processed images are saved to the respective `Output/` folders based on format
+- For best results in GUI mode, use a display with resolution of at least 1280x720
 
-Split View Feature:
-Added the ability to apply operations to specific sections of the image based on a user-defined
-percentage. This improves usability for selective image editing.
+---
 
-Histogram Generation:
-Designed to produce a 256x256 RGB histogram image with optional grid patterns. This feature enhances
-the program's visualization capabilities.
-
-Compression with Haar Wavelet Transform:
-Introduced visual compression that reduces pixel density while retaining a perceivable resemblance
-to the original image.
-
-Levels Adjustment and Color Correction:
-Implemented advanced image manipulation tools for precise tonal adjustments and histogram alignment.
-
-Interactive Mode:
-Added support for interactive user commands (-text), making the program more flexible for users
-without predefined scripts.
-
-GUI Development:
-Enhanced usability with a GUI following MVC principles, providing intuitive controls and visual
-feedback.
-
-
-Image Citations:
-Sunflower Image : (JPG)
- Fir0002, "Sunflower (Sunfola variety) against a blue sky," Wikimedia Commons,
- https://commons.wikimedia.org/wiki/File:Sunflower_sky_backdrop.jpg, accessed October 23, 2024.
- Licensed under Creative Commons Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0) and GNU Free
- Documentation License 1.2.
-
-Lion Image : (PNG)
- Charles J. Sharp, "Lion (Panthera leo) male, six years old, Phinda Private Game Reserve,
- KwaZulu Natal, South Africa," Wikimedia Commons,
- https://commons.wikimedia.org/wiki/File:Lion_(Panthera_leo)_male_6y.jpg, accessed October 23, 2024.
- Licensed under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
-
-Simple PPM Image : (PPM)
- Ashwin Reddy, "simple.ppm image," October 2024. This image was hard-encoded by Ashwin Reddy (Me),
- who owns the rights to this work and authorizes its use in this project.
-
-
-Output:
-The manipulated images will be saved to the Output/ folders in the respective image format
-directory (PPM, PNG, JPG).
-
-
-Notes:
-Ensure the res directory is structured as shown above for proper access to script files and images.
-The script should be passed as a command-line argument when running the application.
+*Transform your pixels, unleash your creativity!*
