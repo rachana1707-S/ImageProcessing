@@ -1,32 +1,87 @@
-🖼️ PixelPerfect: Advanced Image Manipulation Suite
+# PixelPerfect: Advanced Image Manipulation Suite
+![PixelPerfect Banner](assets/banner.png)
+## Overview
+PixelPerfect is an advanced image manipulation and enhancement application that supports loading, manipulating, and saving images in various formats. Built using the Model-View-Controller (MVC) architecture, this application provides a comprehensive set of operations including flipping, brightening, blurring, sepia toning, histogram generation, color correction, levels adjustment, and compression.
 
-Transform your ordinary images into extraordinary creations with our powerful yet intuitive image processing toolkit.
+## Features
+![PixelPerfect Dashboard](assets/dashboard.png)
+- **Multi-format Support**: Load and save images in PPM, PNG, and JPG formats
+- **Triple Operation Modes**: Use script-based, interactive CLI, or full-featured GUI
+- **Core Manipulations**: Flip, resize, brighten, darken, grayscale
+- **Advanced Filters**: Blur, sharpen, sepia tone
+- **Professional Tools**: 
+  - RGB histogram generation
+  - Levels adjustment
+  - Split view for before/after comparisons
+  - Color correction
+  - Image compression using Haar wavelet transform
 
-Developed by: Ashwin Reddy & Rachana Sudhakar
+## Tech Stack
+- **Languages**: Java
+- **Architecture**: Model-View-Controller (MVC)
+- **Design Patterns**: Command Pattern, Strategy Pattern
+- **GUI Framework**: Java Swing
+- **Testing**: JUnit
+- **Version Control**: Git/GitHub
 
----
-✨ Features
+## Screenshots
+### **Main Application Interface**
+![PixelPerfect Interface](assets/interface.png)
+### **Image Filtering**
+![Image Filtering](assets/filtering.png)
+### **Histogram View**
+![Histogram View](assets/histogram.png)
+### **Split View Comparison**
+![Split View](assets/splitview.png)
 
-Multi-format support: Load and save images in PPM, PNG, and JPG formats
-Triple operation modes: Script-based, interactive CLI, and full-featured GUI
-Core manipulations: Flip, resize, brighten, darken, grayscale
-Advanced filters: Blur, sharpen, sepia tone
-Professional tools:
+## Installation
+![PixelPerfect Installation](assets/install.png)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/username/pixelperfect.git
+   cd pixelperfect
+   ```
+2. Ensure you have Java 17 or higher installed:
+   ```bash
+   java --version
+   ```
+3. Run the application using the provided JAR file:
+   ```bash
+   java -jar res/Archive.jar
+   ```
+4. Alternatively, compile the source code:
+   ```bash
+   javac -d bin src/**/*.java
+   java -cp bin Main
+   ```
 
-📊 RGB histogram generation
-🎚️ Levels adjustment
-🔍 Split view for before/after comparisons
-🌈 Color correction
-📉 Image compression using Haar wavelet transform
+## Usage Examples
+### Script Mode
+```bash
+java -jar Archive.jar -file res/PNG/PNGscript.txt
+```
 
+### Interactive Mode
+```bash
+java -jar Archive.jar -text
+```
 
+### GUI Mode
+```bash
+java -jar Archive.jar
+```
 
-🏗️ Architecture
-Built on the solid foundation of Model-View-Controller (MVC) architecture to ensure clean separation of concerns:
-Model     - Manages image data and implements operations
-Controller - Processes commands and orchestrates workflows
-View       - Handles user interaction through CLI or GUI
-📁 Project Structure
+### Command Examples
+| Command | Description |
+| ------- | ----------- |
+| `load res/PNG/lion.png lion` | Load PNG image |
+| `brighten 10 lion lion-brighter` | Increase brightness |
+| `vertical-flip lion lion-flipped` | Flip image vertically |
+| `blur lion lion-blurred` | Apply blur filter |
+| `save res/PNG/Output/lion-blurred.png lion-blurred` | Save processed image |
+
+## Project Structure
+```
 /res/
   ├── JPG/
   │    ├── Output/           -- Output images for JPG processing
@@ -41,86 +96,47 @@ View       - Handles user interaction through CLI or GUI
   │    ├── PPMscript.txt     -- Example script for PPM images
   │    └── simple.ppm        -- Example PPM image
   ├── Archive.jar            -- JAR file for running the program
-  ├── UML.jpeg               -- UML diagram of the project
-  ├── UMLWithMethods.jpeg    -- UML diagram including methods
+  └── UML.jpeg               -- UML diagram of the project
 
 /src/
   ├── controller/            -- Command processing and workflow management
-  │    ├── ControllerInterface.java
-  │    ├── ImageController.java
-  │    ├── ImageprocessingController.java
   ├── model/                 -- Image data and operations
-  │    ├── Image.java
-  │    ├── ImageInterface.java
-  │    ├── ImageOperations.java
-  │    ├── ImageOperationsInterface.java
   ├── view/                  -- User interaction and feedback
-  │    ├── ImageProcessingGUI.java
-  │    ├── ImageView.java
-  │    ├── ViewInterface.java
-  ├── Main.java              -- Application entry point
+  └── Main.java              -- Application entry point
 
-/test/
-  ├── ImageModelTest.java    -- Model component tests
-  ├── ImageControllerTest.java -- Controller tests
-  ├── EqualsHashTest.java    -- Equality and hash method tests
-  ├── ImageprocessingControllerTest.java    -- GUI tests
-  ├── mock
-       ├── MockImageprocessingController.java
-🚀 Getting Started
-Running the Application
-The program supports three modes of operation:
+/test/                       -- Testing components
+```
 
-Script Mode:
-java -jar Archive.jar -file path/to/script.txt
+## Key Components
+### Controller
+The controller manages interactions between user commands and image operations, handling different input methods and coordinating actions.
 
-Interactive Mode:
-java -jar Archive.jar -text
+### Model
+The model represents the core data structures and operations, including the fundamental image structure, pixel data management, and all image processing algorithms.
 
-GUI Mode:
-java -jar Archive.jar
+### View
+The view handles user interaction through either text-based commands or the graphical interface, providing feedback and displaying results.
 
+## Image Credits
+- **Sunflower Image**: Fir0002, "Sunflower (Sunfola variety) against a blue sky," Wikimedia Commons, Licensed under CC BY-NC 3.0 and GNU GFDL 1.2.
+- **Lion Image**: Charles J. Sharp, "Lion (Panthera leo) male, six years old," Wikimedia Commons, Licensed under CC BY-SA 4.0.
+- **Simple PPM Image**: Created by Ashwin Reddy for this project.
 
-Example Commands
-load res/PNG/lion.png lion
-brighten 10 lion lion-brighter
-vertical-flip lion lion-flipped
-blur lion lion-blurred
-save res/PNG/Output/lion-blurred.png lion-blurred
-🔍 Key Components
-Controller
+## Contributing
+1. Fork the repository.
+2. Create a new feature branch:
+   ```bash
+   git checkout -b feature-branch-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add new feature"
+   ```
+4. Push to your branch:
+   ```bash
+   git push origin feature-branch-name
+   ```
+5. Open a pull request.
 
-ImageController: Manages user commands and image operations
-ImageprocessingController: Handles GUI-specific operations and event handling
-
-Model
-
-Image: Core image data structure with pixel manipulation capabilities
-ImageOperations: Implements all image processing algorithms and filters
-
-View
-
-ImageView: Text-based user interaction
-ImageProcessingGUI: Fully-featured graphical interface with real-time previews
-
-🌟 Design Highlights
-
-Flexible Split-View Processing: Apply operations to selective portions of images
-Wavelet-based Compression: Intelligently reduces file size while preserving visual quality
-Advanced Histogram Tools: Generate visual RGB histograms with optional grid patterns
-Modular Filter System: Easily extendable framework for adding new image effects
-
-📸 Image Credits
-
-Sunflower Image (JPG): Fir0002, "Sunflower (Sunfola variety) against a blue sky," Wikimedia Commons, Licensed under CC BY-NC 3.0 and GNU GFDL 1.2.
-Lion Image (PNG): Charles J. Sharp, "Lion (Panthera leo) male, six years old," Wikimedia Commons, Licensed under CC BY-SA 4.0.
-Simple PPM Image: Created by Ashwin Reddy for this project.
-
-📋 Notes
-
-Ensure the res directory structure is maintained for proper script and image access
-Processed images are saved to the respective Output/ folders based on format
-For best results in GUI mode, use a display with resolution of at least 1280x720
-
-
-Transform your pixels, unleash your creativity!
+## Contact
+For any questions or collaborations, contact [Ashwin Reddy & Rachana Sudhakar](mailto:rachanasudhakar17@gmail.com).
