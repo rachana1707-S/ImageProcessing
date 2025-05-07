@@ -1,6 +1,5 @@
-Here's the README in a format you can copy and paste directly, with proper formatting already applied:
 
-# 🖼️ PixelPerfect: Advanced Image Manipulation Suite
+#🖼️ PixelPerfect: Advanced Image Manipulation Suite
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/)
