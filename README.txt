@@ -1,7 +1,4 @@
 🖼️ PixelPerfect: Advanced Image Manipulation Suite
-Show Image
-Show Image
-Show Image
 
 Transform your ordinary images into extraordinary creations with our powerful yet intuitive image processing toolkit.
 
